@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <span style="color: ${product.inStock ? 'green' : 'red'};">
             ${product.inStock ? "In Stock" : "Out of Stock"}
           </span>
-          <button>Add to Cart</button>
+          <button onclick="
+            addCart(${product.id});
+          "
+          >Add to Cart</button>
         </div>
       `;
       resultsGrid.appendChild(item);

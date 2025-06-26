@@ -8,6 +8,7 @@ if (localStorage.getItem("cart")) {
 } else {
   CartQuantity = 0;
 }
+
 // function to add items in cart and update the number in above cart
 function addCart(id) {
   let item = products.find(p => p.id == id);
