@@ -1,0 +1,300 @@
+/* Remove underline from all header links */
+header a {
+  text-decoration: none;
+  
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+/* HEADER CONTAINER */
+header {
+  background-color: #1e1e2f;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 1px solid rgba(237, 185, 136, 0.1);
+}
+
+main{
+  flex: 1;
+}
+
+/* LOGO */
+.logo {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px 15px;
+  background-color: #1e1e2f;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.logo:hover {
+  background-color: #343454;
+  color: #ddd;
+}
+
+/* SEARCH BAR CONTAINER */
+.search-bar {
+  flex-grow: 1;      /* Take up remaining space */
+  flex-shrink: 1;    /* Allow shrinking */
+  min-width: 150px;  /* Minimum width for usability */
+  max-width: 500px;  /* Max width to keep neat */
+}
+
+/* SEARCH INPUT FULL WIDTH */
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* NAV ICONS CONTAINER FOR LOGIN + CART */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* LOGIN TEXT */
+.nav-icons .login {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #1e1e2f;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+.nav-icons .login:hover {
+  background-color: #343454;
+  color: #ddd;
+}
+
+/* CART LINK CONTAINER */
+.cart-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  user-select: none;
+  
+}
+
+/* CART ICON SIZE AND POSITIONING CONTEXT */
+.cart-icon {
+  width: 30px;
+  position: relative; /* Make this the reference for the badge */
+}
+
+/* CART IMAGE */
+.cart-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CART QUANTITY BADGE ABOVE CART ICON */
+.cart-quantity {
+  position: absolute;
+  top: -8px;
+  right: 0px;  /* moved a bit left from -8px */
+  background-color: orange;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Cart text styling */
+.cart-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Footer styling */
+footer {
+  background-color: #1e1e2f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Footer paragraph */
+footer p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Footer icons container */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Footer icons */
+.footer-icons a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+
+/* Responsive adjustments for small screens */
+@media (max-width: 450px) {
+  header {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  .search-bar {
+    min-width: 100%;
+    max-width: 100%;
+    order: 3; /* put search bar below logo and nav */
+  }
+  .logo {
+    flex-grow: 1;
+    order: 1;
+    font-size: 24px;
+  }
+  .nav-icons {
+    order: 2;
+    gap: 15px;
+  }
+  .nav-icons .login, .cart-text {
+    font-size: 14px;
+  }
+  .cart-icon {
+    width: 25px;
+  }
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: none; /* show on small screen */
+}
+
+
+
+.search-bar {
+  transition: max-width 0.3s ease;
+}
+
+.search-bar input {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: auto;
+}
+
+.search-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.search-bar {
+  transition: all 0.3s ease;
+}
+
+.search-bar input {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+
+.loginbtn {
+border-radius: 20px;
+height: 40px;
+  padding: 0 25px;
+  font-size: 16px;
+}
+
+
+
+/* Disable scroll on body when modal open */
+body.modal-open {
+  overflow: hidden;
+  padding-right: 15px; /* reserve space for scrollbar to prevent layout shift */
+}
+
+/* Hide scrollbar in WebKit browsers */
+body.modal-open::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Hide scrollbar in Firefox */
+body.modal-open {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE & Edge */
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+.close-btn:hover {
+  color: #ff4d4d;
+}

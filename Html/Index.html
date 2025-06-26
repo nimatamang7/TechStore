@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechStore: Your one-stop online store for laptops, computers, and accessories." />
+  <meta name="author" content="TechStore" />
+  <title>TechStore</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../CSS/carousel.css" />
+  <link rel="stylesheet" href="../CSS/grid.css" />
+  <link rel="stylesheet" href="../CSS/page.css" />
+  <link rel="stylesheet" href="../CSS/login.css" />
+  
+</head>
+
+<body>
+<header>
+  <a href="Index.html" class="logo">TechStore</a>
+
+  <div class="search-wrapper">
+    <button class="search-toggle" aria-label="Toggle Search">🔍</button>
+    <div class="search-bar" id="searchBar">
+      <input type="text" id="search" placeholder="Search products..." />
+    </div>
+  </div>
+
+  <div class="nav-icons">
+    <button class='loginbtn' style="width:auto;">Login</button>
+
+    <!-- LOGIN MODAL -->
+    <div id='login-form' class='login-page' style="display:none;">
+      <div class="form-box" style="position:relative;">
+       <button id="closeModal" class="close-btn" aria-label="Close login form">&times;</button>
+
+
+        <div class='button-box'>
+          <div id='btn'></div>
+          <button type='button' onclick='login()' class='toggle-btn'>Log In</button>
+          <button type='button' onclick='register()' class='toggle-btn'>Register</button>
+        </div>
+
+        <form id='login' class='input-group-login'>
+          <input type='text' class='input-field' placeholder='Email Id' required>
+          <input type='password' class='input-field' placeholder='Enter Password' required>
+          <input type='checkbox' class='check-box'><span>Remember Password</span>
+          <button type='submit' class='submit-btn'>Log in</button>
+        </form>
+
+        <form id='register' class='input-group-register'>
+          <input type='text' class='input-field' placeholder='Full Name' required>
+          <input type='email' class='input-field' placeholder='Email Id' required>
+          <input type='password' class='input-field' placeholder='Enter Password' required>
+          <input type='password' class='input-field' placeholder='Confirm Password' required>
+          <input type='checkbox' class='check-box'><span>I agree to the terms and conditions</span>
+          <button type='submit' class='submit-btn'>Register</button>
+        </form>
+      </div>
+    </div>
+
+    <a href="cart.html" class="cart-link login" aria-label="Cart">
+      <div class="cart-icon">
+        <img src="../Image/cart-icon.png" alt="Cart Icon" />
+        <div class="cart-quantity cartQuantity">0</div>
+      </div>
+      <div class="cart-text">Cart</div>
+    </a>
+  </div>
+</header>
+
+<main>
+  <!-- Search results hidden by default -->
+  <div class="grid-section" id="searchResultsSection" style="display:none;">
+    <h3>🔍 Search Results</h3>
+    <div id="searchResults" class="grid"></div>
+  </div>
+
+  <div class="grid-section">
+    <h3>🔥 Offer Items <a href="OfferItem.html">More →</a></h3>
+    <div id="offer" class="grid"></div>
+  </div>
+
+  <div class="grid-section">
+    <h3>⭐ Top Sold Products <a href="TopSold.html">More →</a></h3>
+    <div id="topSold" class="grid"></div>
+  </div>
+
+  <div class="grid-section">
+    <h3>Laptops <a href="Laptops.html">More →</a></h3>
+    <div id="laptops" class="grid"></div>
+  </div>
+
+  <div class="grid-section">
+    <h3>Computers <a href="computers.html">More →</a></h3>
+    <div id="computers" class="grid"></div>
+  </div>
+
+  <div class="grid-section">
+    <h3>Accessories <a href="Acessories.html">More →</a></h3>
+    <div id="accessories" class="grid"></div>
+  </div>
+</main>
+
+<footer>
+  <p>Contact us: support@techstore.com | +1 (123) 456-7890</p>
+  <div class="footer-icons"></div>
+</footer>
+
+<script>
+  let page = "main";
+</script>
+
+<script src="../JavaScript/product.js" defer></script>
+<script src="../JavaScript/carousel.js" defer></script>
+<script src="../JavaScript/cart.js" defer></script>
+<script src="../JavaScript/content.js" defer></script>
+<script src="../JavaScript/mainpage.js" defer></script>
+<script src="../JavaScript/search.js" defer></script>
+
+<script>
+  const loginForm = document.getElementById('login-form');
+  const body = document.body;
+  const x = document.getElementById('login');
+  const y = document.getElementById('register');
+  const z = document.getElementById('btn');
+
+  function register() {
+    x.style.left = '-400px';
+    y.style.left = '50px';
+    z.style.left = '110px';
+  }
+
+  function login() {
+    x.style.left = '50px';
+    y.style.left = '450px';
+    z.style.left = '0px';
+  }
+
+  // Open login modal and disable scroll
+  document.querySelector('.loginbtn').addEventListener('click', () => {
+    loginForm.style.display = 'block';
+    body.classList.add('modal-open');
+  });
+
+  // Close modal clicking outside and enable scroll
+  window.onclick = function(event) {
+    if (event.target === loginForm) {
+      loginForm.style.display = 'none';
+      body.classList.remove('modal-open');
+    }
+  };
+
+  // Close modal with close button (×)
+  document.getElementById("closeModal").addEventListener("click", () => {
+    loginForm.style.display = "none";
+    body.classList.remove("modal-open");
+  });
+
+  // Close modal with ESC key
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      loginForm.style.display = "none";
+      body.classList.remove("modal-open");
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("login-form").classList.remove("show");
+    document.body.classList.remove("modal-open");
+  });
+</script>
+
+</body>
+</html>
