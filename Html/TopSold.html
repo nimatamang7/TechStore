@@ -14,7 +14,7 @@
   <a href="Index.html" class="logo">TechStore</a>
 
   <div class="search-bar">
-    <input type="text" placeholder="Search products..." />
+    <input id="search" type="text" placeholder="Search products..." />
   </div>
 
   <div class="nav-icons">
@@ -34,6 +34,10 @@
   <main>
 
     <div class="grid-section">
+      <div class="grid-section" id="searchResultsSection" style="display:none;">
+        <h3>🔍 Search Results</h3></div>
+        </div>
+        <div id="searchResults" class="grid"></div>
       <h3>⭐ Top Sold Products </h3>
       <div id="topSold" class="grid"></div>
     </div>
@@ -50,5 +54,7 @@
   <script src="../JavaScript/cart.js" defer></script>
   <script src="../JavaScript/content.js" defer></script>
   <script src="../JavaScript/topSold.js" defer></script>
+  <script src="../JavaScript/search.js" defer></script>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,31 +10,38 @@
   <link rel="stylesheet" href="../CSS/grid.css" />
   <link rel="stylesheet" href="../CSS/page.css" />
 </head>
+
 <body>
   <header>
-  <a href="Index.html" class="logo">TechStore</a>
+    <a href="Index.html" class="logo">TechStore</a>
 
-  <div class="search-bar">
-    <input type="text" placeholder="Search products..." />
-  </div>
+    <div class="search-bar">
+      <input id="search" type="text" placeholder="Search products..." />
+    </div>
 
-  <div class="nav-icons">
-    <a href="login.html"><div class="login">Login</div></a>
+    <div class="nav-icons">
+      <a href="login.html">
+        <div class="login">Login</div>
+      </a>
 
-    <a href="cart.html" class="cart-link login" aria-label="Cart">
-      <div class="cart-icon ">
-        <img src="../Image/cart-icon.png" alt="Cart Icon" />
-        <div class="cart-quantity cartQuantity">0</div>
-      </div>
-      <div class="cart-text">Cart</div>
-    </a>
-  </div>
-</header>
+      <a href="cart.html" class="cart-link login" aria-label="Cart">
+        <div class="cart-icon ">
+          <img src="../Image/cart-icon.png" alt="Cart Icon" />
+          <div class="cart-quantity cartQuantity">0</div>
+        </div>
+        <div class="cart-text">Cart</div>
+      </a>
+    </div>
+  </header>
 
 
   <main>
 
     <div class="grid-section">
+      <div class="grid-section" id="searchResultsSection" style="display:none;">
+        <h3>🔍 Search Results</h3>
+        </div>
+        <div id="searchResults" class="grid"></div>
       <h3>Computers</h3>
       <div id="computers" class="grid"></div>
     </div>
@@ -50,6 +58,10 @@
   <script src="../JavaScript/product.js" defer></script>
   <script src="../JavaScript/content.js" defer></script>
   <script src="../JavaScript/computer.js" defer></script>
-  <script src="../JavaScript/cart.js" defer></script>
+  <script src="../JavaScript/cart.js" defer></script>    
+  <script src="../JavaScript/search.js" defer></script>
+
+  
 </body>
+
 </html>
