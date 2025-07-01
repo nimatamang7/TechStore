@@ -12,23 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    filteredProducts.forEach(product => {
+    filteredProducts.forEach((product) => {
       const item = document.createElement("div");
       item.className = "grid-item";
       item.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" class="product-img" />
-        <h3>${product.name}</h3>
-        <p class="text-container">$${product.price}</p>
-        <div class="card-footer">
-          <span style="color: ${product.inStock ? 'green' : 'red'};">
-            ${product.inStock ? "In Stock" : "Out of Stock"}
-          </span>
-          <button onclick="
-            addCart(${product.id});
-          "
-          >Add to Cart</button>
-        </div>
-      `;
+      <img src="${product.image}" alt="${product.name}" class="product-img" />
+      <h3>${product.name}</h3>
+      
+      <div class="card-footer">
+     
+      <button onclick="addCart(${product.id})">Add to Cart</button>
+      <p class="text-container">$${product.price}</p>
+      </div>
+    `;
+
       resultsGrid.appendChild(item);
     });
   }
@@ -40,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const filtered = products.filter(product =>
+    const filtered = products.filter((product) =>
       product.name.toLowerCase().includes(query)
     );
 

@@ -61,14 +61,18 @@ if (page == "cart") {
       card.className = "grid-item";
 
       card.innerHTML = `
-  <img src="${product.image}" alt="${product.name}" class="product-img" />
-  <h3>${product.name}</h3>
-  <div class="card-footer">
-    <p class="text-container">Price: $${product.price}</p>
-    <p>Quantity: ${product.quantity}</p>
-    <button class="removeItem" onclick="RemoveItem(${product.id})">Delete One</button>
-    <button class="addToCart" onclick="addCart(${product.id})">Add More</button>
-  </div>
+        <img src="${product.image}" alt="${product.name}" class="product-img" />
+        <h3>${product.name}</h3>
+        <div class="card-footer">
+          <p class="text-container">Price: $${product.price}</p>
+          <p>Quantity:<button class="removeItem" 
+          onclick="RemoveItem(${product.id})
+          ">+</button>${product.quantity}<button class="addToCart" 
+          onclick="addCart(${product.id})
+          ">-</button></p>
+
+          
+        </div>
 `;
       cartDisplay.appendChild(card);
     })
