@@ -18,14 +18,17 @@ function addCart(id) {
     cartItem = cartItem.map(p => {
       //checking if our cart has the product or not
       if (p.id === id) {
+         
         //Returning upgraded version -array in cartItem with quantity incrased
         return { ...p, quantity: p.quantity + 1 };
       }
       //if no id found just returns the new object data
+
       return p;
     });
   } else {
     cartItem.push(copyItem);
+    
   }
 
   CartQuantity = 0;
@@ -39,6 +42,8 @@ function addCart(id) {
   if (page == "cart") {
     displayCart();
   }
+  //showing item added 
+  showToast("Item Added", "success");
   //updating the number above cart
   document.querySelector('.cartQuantity').innerHTML = CartQuantity;
 
@@ -66,10 +71,10 @@ if (page == "cart") {
         <div class="card-footer">
           <p class="text-container">Price: $${product.price}</p>
           <p>Quantity:<button class="removeItem" 
-          onclick="RemoveItem(${product.id})
-          ">+</button>${product.quantity}<button class="addToCart" 
-          onclick="addCart(${product.id})
-          ">-</button></p>
+          onclick="RemoveItem(${product.id});
+          ">-</button>${product.quantity}<button class="addToCart" 
+          onclick="addCart(${product.id});
+          ">+</button></p>
 
           
         </div>
@@ -84,6 +89,7 @@ function RemoveItem(id) {
   let item = cartItem.find(p => p.id == id);
   item.quantity--;
   CartQuantity--;
+  let itemclear;
   displayCart();
   //updating the number above cart
   document.querySelector('.cartQuantity').innerHTML = CartQuantity;
@@ -93,6 +99,14 @@ function RemoveItem(id) {
     //deleting the product from the array
     cartItem = cartItem.filter(item => item.id !== deleteProduct)
     displayCart();
+    itemclear=true;
+  }
+  if(itemclear){
+    //showing item delete
+  showToast("Item Removed successful!", "success");
+  }else{
+  //showing one item delete
+  showToast("One Item Removed successful!", "success");
   }
   localStorage.setItem("quantity", JSON.stringify(CartQuantity))
   //saving the cartItem in localStorage to get cart even after page refresh
